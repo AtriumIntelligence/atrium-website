@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page == 'index.html' %}{{ SITE.name }}: business dashboards for small businesses{% else %}{{ title }} | {{ SITE.name }}{% endif %}</title>
+  <meta name="description" content="{{ SITE.description }}">
+  <meta property="og:title" content="{{ SITE.name }}">
+  <meta property="og:description" content="{{ SITE.description }}">
+  <meta property="og:url" content="{{ SITE.url }}/{% if page != 'index.html' %}{{ page }}{% endif %}">
+  <link rel="icon" href="static/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body class="page-{{ page.replace('.html', '') }}">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="{{ SITE.name }} home">
+        <img src="static/favicon.svg" alt="" width="30" height="30">
+        <span>Atrium<br>Intelligence</span>
+      </a>
+      <nav aria-label="Main">
+        <ul>
+          {% for item in NAV %}
+          <li><a href="{{ item.href }}"{% if item.href == page %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    {% block main %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <p class="footer-name">{{ SITE.name }}</p>
+        <p>{{ SITE.location }}</p>
+      </div>
+      <div>
+        <p><a href="mailto:{{ SITE.email }}">{{ SITE.email }}</a></p>
+        <p><a href="tel:{{ SITE.phone_href }}">{{ SITE.phone }}</a></p>
+      </div>
+      <p class="footer-small">© {{ year }} {{ SITE.name }}. Built in Python.</p>
+    </div>
+  </footer>
+</body>
+</html>
