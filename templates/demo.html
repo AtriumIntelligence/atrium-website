@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="page-intro">
+  <div class="wrap intro-grid">
+    <div>
+      <h1>{{ DEMO.title }}</h1>
+      <p class="lede">{{ DEMO.lede }}</p>
+      <p class="actions">
+        <a class="btn btn-primary" href="{{ SITE.demo_url }}" target="_blank" rel="noopener">Open the demo full screen</a>
+      </p>
+    </div>
+    <div class="try">
+      <h2>Things to try</h2>
+      <dl>
+        {% for name, desc in DEMO.try %}
+        <div><dt>{{ name }}</dt><dd>{{ desc }}</dd></div>
+        {% endfor %}
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="demo-frame" aria-label="Live demo">
+  <div class="wrap-wide">
+    <div class="frame">
+      <iframe src="{{ SITE.demo_url }}?embed=true" title="Smart Brew live demo dashboard"
+              loading="lazy" allow="clipboard-write"></iframe>
+    </div>
+    <p class="frame-note">{{ DEMO.sleep_note }} If it doesn't appear here, <a href="{{ SITE.demo_url }}" target="_blank" rel="noopener">open the demo in a new tab</a>.</p>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap closing-inner">
+    <h2>Want this for your business?</h2>
+    <p class="actions">
+      <a class="btn btn-light" href="contact.html">Talk to us</a>
+    </p>
+  </div>
+</section>
+{% endblock %}

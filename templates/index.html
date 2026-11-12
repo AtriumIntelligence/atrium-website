@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>{{ HERO.title }}</h1>
+      <p class="lede">{{ HERO.lede }}</p>
+      <p class="actions">
+        <a class="btn btn-primary" href="{{ HERO.primary.href }}">{{ HERO.primary.label }}</a>
+        <a class="btn btn-quiet" href="{{ HERO.secondary.href }}">{{ HERO.secondary.label }}</a>
+      </p>
+    </div>
+    <figure class="hero-plan">
+      {{ plan_svg | safe }}
+      <figcaption>Every part of the business opens onto one central view.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="products" aria-labelledby="products-title">
+  <div class="wrap">
+    <h2 id="products-title">Two dashboards, built from the same data</h2>
+    <div class="product-split">
+      {% for p in PRODUCTS %}
+      <article class="product">
+        <p class="product-for">{{ p.for }}</p>
+        <h3>{{ p.name }}</h3>
+        <p>{{ p.summary }}</p>
+        <dl>
+          {% for name, desc in p.areas %}
+          <div><dt>{{ name }}</dt><dd>{{ desc }}</dd></div>
+          {% endfor %}
+        </dl>
+      </article>
+      {% endfor %}
+    </div>
+    <p class="products-cta"><a class="btn btn-primary" href="demo.html">Try both in the live demo</a></p>
+  </div>
+</section>
+
+<section class="questions" aria-labelledby="questions-title">
+  <div class="wrap">
+    <h2 id="questions-title">Questions you'll be able to answer in a minute</h2>
+    <ul class="question-list">
+      {% for q in QUESTIONS %}<li>{{ q }}</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="services" id="services" aria-labelledby="services-title">
+  <div class="wrap services-grid">
+    <h2 id="services-title">What we do</h2>
+    <div class="service-list">
+      {% for s in SERVICES %}
+      <div class="service">
+        <h3>{{ s.name }}</h3>
+        <p>{{ s.body }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <h2 id="process-title">How working with us goes</h2>
+    <ol class="steps">
+      {% for name, body in PROCESS %}
+      <li><h3>{{ name }}</h3><p>{{ body }}</p></li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="about" id="about" aria-labelledby="about-title">
+  <div class="wrap about-grid">
+    <h2 id="about-title">{{ ABOUT.title }}</h2>
+    <div>
+      {% for para in ABOUT.body %}<p>{{ para }}</p>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap closing-inner">
+    <h2>See what your business looks like in one room.</h2>
+    <p class="actions">
+      <a class="btn btn-light" href="contact.html">Talk to us</a>
+      <a class="btn btn-ghost-light" href="demo.html">Explore the live demo</a>
+    </p>
+  </div>
+</section>
+{% endblock %}

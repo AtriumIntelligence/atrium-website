@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="page-intro contact">
+  <div class="wrap intro-grid">
+    <div>
+      <h1>{{ CONTACT.title }}</h1>
+      <p class="lede">{{ CONTACT.lede }}</p>
+      <p class="actions">
+        <a class="btn btn-primary" href="mailto:{{ SITE.email }}?subject={{ CONTACT.subject | urlencode }}">Email us</a>
+        <a class="btn btn-quiet" href="tel:{{ SITE.phone_href }}">Call {{ SITE.phone }}</a>
+      </p>
+    </div>
+    <div class="contact-card">
+      <dl>
+        <div><dt>Email</dt><dd><a href="mailto:{{ SITE.email }}">{{ SITE.email }}</a></dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:{{ SITE.phone_href }}">{{ SITE.phone }}</a></dd></div>
+        <div><dt>Based in</dt><dd>{{ SITE.location }}</dd></div>
+      </dl>
+      <h2>Helpful to include</h2>
+      <ul>
+        <li>What your business does and how many locations you have</li>
+        <li>The tools you use today (POS, payroll, bookkeeping, ad accounts)</li>
+        <li>One or two questions you wish you could answer</li>
+      </ul>
+    </div>
+  </div>
+</section>
+{% endblock %}
