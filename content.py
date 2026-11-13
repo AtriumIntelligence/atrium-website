@@ -8,7 +8,7 @@ SITE = {
     "email": "atriumintelligence@outlook.com",
     "phone": "860-836-7624",
     "phone_href": "+18608367624",
-    "location": "Manchester, CT 06040",
+    "location": "Lebanon, CT 06249",
     "demo_url": "https://smartbrewpitchdemo.streamlit.app/",
 }
 
@@ -96,7 +96,7 @@ ABOUT = {
         ("An atrium is the open room at the center of a building. Light comes in from above, and every "
          "other room opens onto it. That's what we build for your data: one central place where sales, "
          "marketing, staff and customers all come together and are easy to see."),
-        ("We're based in Manchester, Connecticut, and we work with small businesses that have outgrown "
+        ("We're based in Lebanon, Connecticut, and we work with small businesses that have outgrown "
          "spreadsheets but don't need an enterprise software contract."),
     ],
 }
